@@ -35,6 +35,10 @@ namespace TemperatureFormsTool
             TextBox Address = this.FindName("Address") as TextBox;
 
             Submit.Click += (object sender,RoutedEventArgs args)=>{
+                int count = Panel.Children.Count;
+                for (int i = 0;i<count;i++){
+                    Panel.Children.RemoveAt(0);
+                }
                 Uri uri = new Uri($"https://docs.google.com/forms/d/{Address.Text}/viewform");
                 System.Diagnostics.Debug.WriteLine(uri.AbsoluteUri);
                 List<Input> res = Parse(uri);
