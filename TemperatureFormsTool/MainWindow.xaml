@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <StackPanel>
+            <StackPanel Height="48" Orientation="Horizontal">
+                <TextBox x:Name="textBox" Text="" TextWrapping="Wrap" Width="708" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Padding="10" ScrollViewer.CanContentScroll="True" UseLayoutRounding="False" FontSize="14"/>
+                <Button x:Name="button" Content="表示" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="5
+                        "/>
+            </StackPanel>
+            <WebBrowser AutomationProperties.Name="Browser"/>
+        </StackPanel>
 
     </Grid>
 </Window>
