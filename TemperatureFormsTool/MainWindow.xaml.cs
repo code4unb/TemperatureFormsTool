@@ -36,7 +36,8 @@ namespace TemperatureFormsTool
 
             Submit.Click += (object sender,RoutedEventArgs args)=>{
                 int count = Panel.Children.Count;
-                for (int i = 0;i<count;i++){
+                for(int i = 0; i < count; i++)
+                {
                     Panel.Children.RemoveAt(0);
                 }
                 Uri uri = new Uri($"https://docs.google.com/forms/d/{Address.Text}/viewform");
@@ -45,6 +46,7 @@ namespace TemperatureFormsTool
                 Web.Source = uri;
                 foreach(Input i in res)
                 {
+                    System.Diagnostics.Debug.WriteLine(i.Name+":"+i.Id);
                     StackPanel pn = new StackPanel();
                     pn.Orientation = Orientation.Horizontal;
                     Label name = new Label();
@@ -60,6 +62,26 @@ namespace TemperatureFormsTool
                     TextBox b = new TextBox();
                     b.Name = "value";
                     b.MinWidth = 200;
+                    if (i.Name.Contains("名"))
+                    {
+                        b.Text = "%name";
+                    }
+                    else if (i.Name.Contains("日"))
+                    {
+                        b.Text = "%date";
+                    }
+                    else if (i.Name.Contains("番"))
+                    {
+                        b.Text = "%number";
+                    }
+                    else if (i.Name.Contains("温"))
+                    {
+                        b.Text = "%temperature";
+                    }
+                    else if (i.Name.Contains("午"))
+                    {
+                        b.Text = "%time_convention";
+                    }
                     pn.Children.Add(b);
                     Panel.Children.Add(pn);
                 }
