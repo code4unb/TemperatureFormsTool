@@ -10,9 +10,9 @@ namespace TemperatureFormsTool
 
         public string Id { get; }
 
-        public Input(string name,string get) {
+        public Input(string name,string id) {
             Name = name;
-            Id = Id;
+            Id = id;
         }
     }
 }
